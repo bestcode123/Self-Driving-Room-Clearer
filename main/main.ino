@@ -57,12 +57,16 @@ float getDistanceData2(int distanceData) {
 
 void setup() {
   // put your setup code here, to run once:
-
+  pinMode(trigPin1, OUTPUT);
+  pinMode(echoPin1, INPUT);
+  pinMode(trigPin1, OUTPUT);
+  pinMode(echoPin1, INPUT);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
   // Getting the HC-SR04 distance data
 
+  float distances[2] = { getDistanceData2(1), getDistanceData2(2) };
 
 }
