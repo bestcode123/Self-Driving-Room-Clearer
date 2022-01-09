@@ -5,7 +5,7 @@ import keras_tuner as kt
 import random
 
 ds_train = keras.utils.image_dataset_from_directory(
-    'path',
+    'datasets/cvd',
     validation_split=0.1,
     seed=random.randint(0, 1000),
     subset='training',
@@ -15,7 +15,7 @@ ds_train = keras.utils.image_dataset_from_directory(
 )
 
 s_val = keras.utils.image_dataset_from_directory(
-    'path',
+    'datasets/cvd',
     validation_split=0.1,
     seed=random.randint(0, 1000),
     subset='validation',
@@ -23,6 +23,8 @@ s_val = keras.utils.image_dataset_from_directory(
     label_mode='int',
     color_mode='grayscale'
 )
+
+class_names = ds_train.class_names
 
 model = keras.Sequential([
     keras.layers.Input(shape=(255, 255, 1)),
@@ -43,7 +45,7 @@ model.compile(
 
 model.fit(ds_train, epochs=10, batch_size=32)
 
-CATEGORIES= ['phone', 'watch']
+CATEGORIES= ['cats', 'dogs']
 
 def prepare(filepath):
   IMG_SIZE = 255
