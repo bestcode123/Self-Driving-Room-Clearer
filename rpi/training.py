@@ -56,3 +56,5 @@ def prepare(filepath):
 
 pre = model.predict(prepare("/content/dataset/phone/DSCF1893.JPG"))
 print(CATEGORIES[int(pre[0][0])])
+
+# This is a test comment 
